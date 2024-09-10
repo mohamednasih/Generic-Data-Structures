@@ -10,18 +10,20 @@ static t_node	*create_node(void *data)
 	p_node->next = NULL;
 	return (p_node);
 }
-void	append_to_list(t_node **p_head, void *data)
+t_node	*append_to_list(t_node **p_head, void *data)
 {
 	t_node	*current;
+	t_node	*new_node;
 
+	new_node = create_node(data);
 	if (*p_head == NULL)
 	{
-		*p_head = create_node(data);
-		return ;
+		*p_head = new_node;
+		return (new_node);
 	}
 	current = *p_head;
 	while (current->next)
 		current = current->next;
-	current->next = create_node(data);
-	
+	current->next = new_node;
+	return (new_node);
 }
