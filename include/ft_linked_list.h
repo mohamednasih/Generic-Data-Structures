@@ -20,4 +20,5 @@ void	free_nodes(t_node *head);
 t_node  *array_to_linked_list(void *buffer, t_size size, t_size el_size);
 t_node  *pop_head(t_node **a_head);
 t_node	*pop_tail(t_node **a_head);
+t_node	*remove_if(t_node **a_head, int (*match)(void *d1));
 #endif
