@@ -1,5 +1,7 @@
 #ifndef FT_LINKED_LIST_H
 #define FT_LINKED_LIST_H
+#include "ft_types.h"
+
 typedef struct s_node 
 {
 	void *data;
@@ -14,4 +16,5 @@ t_node	*insert_after_data(t_node *head, void *target, int (*eq)(void *d, void *d
 t_node	*insert_before_data(t_node **head, void *target, int (*eq)(void *d, void *d1), void *new_data);
 void	free_list(t_node *head);
 void	free_nodes(t_node *head);
+t_node  *array_to_linked_list(void *buffer, t_size size, t_size el_size);
 #endif
