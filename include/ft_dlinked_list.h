@@ -17,4 +17,5 @@ typedef struct s_dlist
 }t_dlist;
 
 void	foreach_dlist(t_dlist dlist, void (*f)(t_dnode *));
+t_dnode	*ft_dlist_append(t_dlist *list, void *data);
 #endif
