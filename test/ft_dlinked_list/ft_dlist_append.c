@@ -47,11 +47,18 @@ void	test_append_multi_el(t_dnode *node)
 	FT_ASSERT(result, "append to a  list with multiple elments");
 }
 
+void destroy(t_dnode * node)
+{
+	char *c = node->data;
+	printf("destroying %c \n", *c);
+	free(node);
+}
 int main()
 {
 	t_dlist dlist;
 	t_dnode	*new_node;
 
+	dlist.destroy = destroy;
 	char *data = "abcdefgh";
 	new_node = ft_dlist_append(&dlist, data++);
 	test_append_to_empty(new_node);
@@ -59,4 +66,5 @@ int main()
 	test_append_to_single_node(new_node);
 	new_node = ft_dlist_append(&dlist, data++);
 	test_append_multi_el(new_node);
+	free_dlist(dlist);
 }

@@ -47,6 +47,13 @@ void	test_target_not_part(t_dnode * node)
 	FT_ASSERT(node == NULL, "target not part of the list");
 }
 
+void destroy(t_dnode * node)
+{
+        char *c = node->data;
+        printf("destroying %c \n", *c);
+        free(node);
+}
+
 int main()
 {
 	t_dlist list;
@@ -54,6 +61,7 @@ int main()
 	list.head = NULL;
 	char target;
 	char *data = "abc";
+	list.destroy = destroy;
 
 	target = 'a';
 	node = ft_dlist_find(list, &target, data_eq);
@@ -76,4 +84,5 @@ int main()
 	target = 'x';
 	node = ft_dlist_find(list, &target, data_eq);
 	test_target_not_part(node);
+	free_dlist(list);
 }

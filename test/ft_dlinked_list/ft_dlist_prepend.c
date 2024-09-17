@@ -49,10 +49,18 @@ void	test_prepend_multi_el(t_dnode *node)
 	FT_ASSERT(result, "prepend to a  list with multiple elments");
 }
 
+void destroy(t_dnode * node)
+{
+        char *c = node->data;
+        printf("destroying %c \n", *c);
+        free(node);
+}
+
 int main()
 {
 	t_dlist dlist;
 	t_dnode	*new_node;
+	dlist.destroy = destroy;
 
 	char *data = "abc";
 	new_node = ft_dlist_prepend(&dlist, data++);
@@ -61,4 +69,5 @@ int main()
 	test_prepend_to_single_node(new_node);
 	new_node = ft_dlist_prepend(&dlist, data++);
 	test_prepend_multi_el(new_node);
+	free_dlist(dlist);
 }
