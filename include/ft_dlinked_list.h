@@ -23,4 +23,5 @@ t_dnode  *ft_dlist_find(t_dlist list, void *target, int (*eq)(void *data1, void 
 void    free_dlist(t_dlist list);
 t_dnode *dlist_insert_before_match(t_dlist *list,int (*match)(void *d1, void *d2), void *data);
 void	dlist_pop_head(t_dlist *dlist);
+void	dlist_pop_tail(t_dlist *dlist);
 #endif
