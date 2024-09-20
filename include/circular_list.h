@@ -13,4 +13,5 @@ typedef struct
 	void (*free_node)(t_cnode *);
 }t_circular_list;
 void	circular_list_free(t_circular_list *list);
+void	circular_list_foreach(const t_circular_list list, void callback(const t_cnode *));
 #endif
