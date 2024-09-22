@@ -23,4 +23,5 @@ t_cnode *circular_list_find(t_circular_list list,const void *target, int match(c
 t_cnode *circular_list_insert_after(t_circular_list *list, void *target, void *data, int match(const t_cnode *,const void *));
 t_cnode *circular_list_pop_head(t_circular_list *list);
 t_cnode *circular_list_pop_tail(t_circular_list *list);
+int     circular_list_remove_if(t_circular_list *list, t_circular_list *removed_nodes, int match(t_cnode *));
 #endif
